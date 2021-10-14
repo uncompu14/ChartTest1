@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "404361054627",
+    "project_id": "charttest1-192db",
+    "storage_bucket": "charttest1-192db.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:404361054627:android:9154184e0cfbcea185b216",
+        "android_client_info": {
+          "package_name": "com.hanium.charttest1"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "404361054627-0fvgiqlmmp15utc2g0m2ph9l951ggn5i.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAoysAduEbaHzIITtxx16ZYWe7eVNzoPYA"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "404361054627-0fvgiqlmmp15utc2g0m2ph9l951ggn5i.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
