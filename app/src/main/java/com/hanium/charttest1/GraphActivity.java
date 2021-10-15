@@ -4,7 +4,6 @@ import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.os.Bundle;
-import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 
@@ -20,13 +19,9 @@ import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
 
 import java.util.ArrayList;
-import java.util.Map;
 
-public class MainActivity extends AppCompatActivity {
+public class GraphActivity extends AppCompatActivity {
 
-    EditText xValue;
-    EditText yValue;
-    Button btn_insert;
 
     LineChart lineChart;
     LineDataSet lineDataSet = new LineDataSet(null,null);
@@ -39,33 +34,17 @@ public class MainActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_main);
+        setContentView(R.layout.activity_graph);
 
-        xValue = findViewById(R.id.x_value);
-        yValue = findViewById(R.id.y_value);
-        btn_insert = findViewById(R.id.btn_insert);
-        lineChart = findViewById(R.id.graphview);
+        lineChart = findViewById(R.id.chart_1);
 
         firebaseDatabase = FirebaseDatabase.getInstance();
         myRef = firebaseDatabase.getReference("ChartValues");
 
-    }
-
-    private void inserData() {
-        btn_insert.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                String id = myRef.push().getKey();
-                int x = Integer.parseInt(xValue.getText().toString());
-                int y = Integer.parseInt(yValue.getText().toString());
-
-                DataPoint dataPoint = new DataPoint(x, y);
-                myRef.child(id).setValue(dataPoint);
-                retrieveData();
-            }
-        });
+        retrieveData();
 
     }
+
 
     private void retrieveData() {
         myRef.addValueEventListener(new ValueEventListener() {
@@ -76,7 +55,7 @@ public class MainActivity extends AppCompatActivity {
                 if (dataSnapshot.hasChildren()){
                     for (DataSnapshot snapshot : dataSnapshot.getChildren()){
                         DataPoint dataPoint = snapshot.getValue(DataPoint.class);
-                        dataVals.add(new Entry(dataPoint.getxValue(),dataPoint.getyValue()));
+                        dataVals.add(new Entry(dataPoint.getyValue(),dataPoint.getxValue()));
                     }
 
                     showChart(dataVals);

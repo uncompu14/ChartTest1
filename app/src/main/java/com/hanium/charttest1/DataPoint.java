@@ -1,7 +1,8 @@
 package com.hanium.charttest1;
 
 public class DataPoint {
-    int xValue, yValue;
+    float xValue, yValue;
+
 
     public DataPoint() {
     }
@@ -11,12 +12,11 @@ public class DataPoint {
         this.yValue = yValue;
     }
 
-    public int getxValue() {
+    public float getxValue() {
         return xValue;
     }
 
-    public int getyValue() {
-        return yValue;
-    }
+    public float getyValue() { return yValue; }
+
 }
 
