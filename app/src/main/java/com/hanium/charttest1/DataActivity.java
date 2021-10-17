@@ -1,14 +1,14 @@
 package com.hanium.charttest1;
 
-import android.content.Intent;
-import android.os.Bundle;
-import android.util.Log;
-import android.view.View;
-
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
+
+import android.content.Intent;
+import android.os.Bundle;
+import android.util.Log;
+import android.view.View;
 
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
@@ -34,7 +34,6 @@ public class DataActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_data);
-
         recyclerView = findViewById(R.id.recyclerView);
         recyclerView.setHasFixedSize(true); //리사이클러뷰 성능 강화
         layoutManager = new LinearLayoutManager(this);
@@ -43,7 +42,8 @@ public class DataActivity extends AppCompatActivity {
 
         database = FirebaseDatabase.getInstance(); // 파이어베이스데이터베이스 연동
 
-        valueEventListener = database.getReference("User").orderByChild("count").startAt(1)
+        valueEventListener = database.getReference("ChartValues")
+                /*.orderByChild("count").startAt(1)*/
                 .addValueEventListener(new ValueEventListener() {
                     @Override
                     public void onDataChange(@NonNull @NotNull DataSnapshot dataSnapshot) {
@@ -53,7 +53,7 @@ public class DataActivity extends AppCompatActivity {
 
                             User user = snapshot.getValue(User.class);
                             arrayList.add(user); // 담은 데이터들을 배열리스트에 담고 리사이클러뷰로 보낼 준비
-                           
+
                         }
                         adapter.notifyDataSetChanged(); //리스트 저장 및 새로고침
                     }
@@ -67,6 +67,7 @@ public class DataActivity extends AppCompatActivity {
 
         adapter = new CustomAdapter(arrayList, this);
         recyclerView.setAdapter(adapter); // 리사이클러뷰에 어댑터 연결
+
     }
 
     @Override

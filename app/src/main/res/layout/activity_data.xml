@@ -10,7 +10,7 @@
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/recyclerView"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"/>
+        android:layout_height="450dp"/>
 
     <Button
         android:layout_width="wrap_content"
@@ -22,10 +22,8 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="그래프 보기"
-        android:layout_marginTop="15dp"
-        android:layout_marginStart="280dp"
+        android:layout_marginTop="10dp"
+        android:layout_marginStart="260dp"
         android:onClick="graph_view"/>
-
-
 
 </LinearLayout>

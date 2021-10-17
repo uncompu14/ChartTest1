@@ -1,5 +1,6 @@
 package com.hanium.charttest1;
 
+
 import android.content.Context;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -60,3 +61,5 @@ public class CustomAdapter extends RecyclerView.Adapter<CustomAdapter.CustomView
         }
     }
 }
+
+

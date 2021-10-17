@@ -3,6 +3,8 @@
     package="com.hanium.charttest1">
 
     <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.BLUETOOTH"/>
+    <uses-permission android:name="android.permission.BLUETOOTH_ADMIN"/>
 
     <application
         android:allowBackup="true"
@@ -11,8 +13,9 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.ChartTest1">
-        <activity android:name=".BluetoothActivity"></activity>
-        <activity android:name=".MainActivity2">
+        <activity android:name=".DataActivity"></activity>
+        <activity android:name=".BluetoothActivity" />
+        <activity android:name=".MainActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
